@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BJJ-8P 柔术人格测试</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. 首页 -->
+    <div id="page-home" class="page active">
+        <div class="container">
+            <div class="emoji">🥋</div>
+            <h1 class="title">BJJ-8P 柔术人格测试</h1>
+            <p class="subtitle">18道题，测出你的真实垫上人格</p>
+            
+            <div class="rules">
+                <p>👑 维度1：力量与技术</p>
+                <p>👕 维度2：道服与无道服</p>
+                <p>⚔️ 维度3：竞技与生活方式</p>
+            </div>
+            <button class="btn primary" onclick="startTest()">开始测试</button>
+        </div>
+    </div>
+
+    <!-- 2. 答题页 -->
+    <div id="page-test" class="page">
+        <div class="container">
+            <div class="progress-wrap">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <p class="num" id="q-num">1 / 18</p>
+
+            <div class="card" id="question-card">
+                <h2 class="q-text" id="q-text"></h2>
+                <div class="opts">
+                    <div class="opt" onclick="selectOption(1)">
+                        <span class="opt-label">A</span>
+                        <span class="opt-text" id="opt-a"></span>
+                    </div>
+                    <div class="opt" onclick="selectOption(0)">
+                        <span class="opt-label">B</span>
+                        <span class="opt-text" id="opt-b"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. 结果页 -->
+    <div id="page-result" class="page">
+        <div class="container">
+            <div class="result-header">
+                <span class="big-emoji" id="r-emoji"></span>
+                <h1 class="r-title" id="r-title"></h1>
+                <p class="r-code" id="r-code"></p>
+            </div>
+
+            <!-- 预留的结果图片区域 -->
+            <div class="poster-box">
+                <!-- 注意这里使用 data-src，JS计算完结果后再赋值给 src，实现真正的懒加载 -->
+                <img id="r-poster" data-src="" alt="柔术人格海报">
+            </div>
+
+            <p class="desc" id="r-desc"></p>
+            <button class="btn primary" onclick="savePoster()">长按图片保存，分享给道馆兄弟</button>
+            <button class="btn outline" onclick="location.reload()">重新测试</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
